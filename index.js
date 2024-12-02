@@ -2,7 +2,7 @@ var express = require ('express');
 var ejs = require('ejs');
 var bodyParser= require ('body-parser');
 var mysql = require('mysql');
-var react=require('react');
+
 
 
 const app = express()

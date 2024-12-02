@@ -25,6 +25,16 @@ module.exports = function(app, AppData) {
         };
         res.render('mealPlans.ejs', { mealPlans: mealPlans[diet] });
     });
+
+    app.get('/badges', (req, res) => {
+        const badges = [
+            { name: "Good Job", image: "/images/good-job.png" },
+            { name: "Level Up", image: "/images/badges/level-up.png" },
+            { name: "I'm Proud of You", image: "/images/badges/proud-of-you.png" }
+        ];
+        res.render('badges.ejs', { badges });
+    });
+    
     
 }
 
