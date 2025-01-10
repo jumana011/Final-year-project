@@ -30,6 +30,21 @@ var AppData = {AppName: "Healthified"}
 // Requires the main.js file inside the routes folder passing in the Express app and data as arguments.  All the routes will go in this file
 require("./routes/main")(app,AppData);
 
+// Define the database connection
+const db = mysql.createConnection ({
+    host: 'localhost',
+    user: 'appuser',
+    password: 'app2027',
+    database: 'healthified'
+});
+// Connect to the database
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
+global.db = db;
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

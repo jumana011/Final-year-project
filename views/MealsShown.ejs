@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Meal Plan</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body class="centre">
+    <h1 >Your Personalized Meal Plan</h1>
+    <ul >
+        <% meals.forEach(meal => { %>
+            <ul>
+                <h2><%= meal.name %></h2>
+                <p><%= meal.description %></p>
+                <p>Diet Type: <%= meal.Diet_type %></p>
+                <p>Meal Type: <%= meal.meal_type %></p>
+                
+            </ul>
+        <% }); %>
+    </ul>
+    <a  href="/" >Back to Home</a>
+</body>
+</html>
