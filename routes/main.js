@@ -17,10 +17,13 @@ module.exports = function(app, AppData) {
         res.render('Exercises.ejs', AppData)
     });
     app.post('/registered',function (req, res) {
-    
+
             // SQL query to insert the new user into the registration table
             let sqlquery = "INSERT INTO registration (email, username, password) VALUES (?,?,?)";
-            
+
+            if (!req.body.username & !req.body.password & !req.body.email) {
+                return res.send('Invalid, please enter your details');
+            }
             // Data to be inserted into the table
             let newrecord = [req.body.email, req.body.username, req.body.password];
     
