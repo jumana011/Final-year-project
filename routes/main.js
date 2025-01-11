@@ -16,6 +16,9 @@ module.exports = function(app, AppData) {
     app.get('/Exercises',function(req,res){
         res.render('Exercises.ejs', AppData)
     });
+    app.get('/badges',function(req,res){
+        res.render('badges.ejs', AppData)
+    });
     app.post('/registered',function (req, res) {
 
             // SQL query to insert the new user into the registration table
@@ -34,7 +37,7 @@ module.exports = function(app, AppData) {
                 } else {
                     // Constructing the result message for the response
                     result = 'Hello '+ req.body.username + ' '+' you are now registered!  We will send an email to you at ' + req.body.email
-                    res.send(result)
+                    res.send(result + " " + '<a href="/login">login</a>')
                 }
             });
         });
@@ -42,12 +45,11 @@ module.exports = function(app, AppData) {
         app.post('/loggedin', function (req, res) {
             const username = req.body.username;
             const password = req.body.password;
-        
             // Validate input
             if (!username || !password) {
                 return res.send('you need to input your username and password');
             }
-        
+            
             // SQL query to select the password for the user from the database
             let sqlquery = "SELECT password FROM registration WHERE username = ?";
             db.query(sqlquery, [username], (err, result) => {
@@ -66,7 +68,7 @@ module.exports = function(app, AppData) {
                 // Compare the provided password with the stored password
                 if (password == storedPassword) {
                     // Authentication successful
-                    return res.send('Login successful');
+                    return res.send('Login successful' + " "+ '<a href="/">Home</a>');
                 } else {
                     // Authentication failed
                     return res.send('Invalid username or password');
@@ -76,11 +78,11 @@ module.exports = function(app, AppData) {
     
 
             app.post('/meal-plans', (req, res) => {
-                const diet = req.body.diet;
-            
+                //const diet = req.body.diet;
+                const { diet, meal } = req.body;
                 // Query the database for meals matching the diet preference
-                const query = 'SELECT * FROM meals WHERE Diet_type = ?';
-                db.query(query, [diet], (err, results) => {
+                const query = 'SELECT * FROM meals WHERE Diet_type = ? AND meal_type = ?';
+                db.query(query, [diet,meal], (err, results) => {
                     if (err) throw err;
             
                     // Render the meal plans page with the retrieved data
@@ -89,7 +91,7 @@ module.exports = function(app, AppData) {
             });
             
 
-    app.get('/badges', (req, res) => {
+    app.get('/badgesAchieved', (req, res) => {
         const badges = [
             { name: "Good Job", image: "/images/good-job.png" },
             { name: "Level Up", image: "/images/badges/level-up.png" },
