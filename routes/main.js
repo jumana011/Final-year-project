@@ -78,7 +78,6 @@ module.exports = function(app, AppData) {
     
 
             app.post('/meal-plans', (req, res) => {
-                //const diet = req.body.diet;
                 const { diet, meal } = req.body;
                 // Query the database for meals matching the diet preference
                 const query = 'SELECT * FROM meals WHERE Diet_type = ? AND meal_type = ?';
