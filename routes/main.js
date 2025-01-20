@@ -22,6 +22,13 @@ module.exports = function(app, AppData) {
     app.get('/Messages',function(req,res){
         res.render('Messages.ejs', AppData)
     });
+    //Link: https://blog.logrocket.com/natural-language-processing-node-js/
+
+    app.post('/Motivational-Messages',function(req,res){
+        var natural = require('natural');
+        var tokenizer = new natural.WordTokenizer();
+        res.send(tokenizer.tokenize("The quick brown fox jumps over the lazy dog"))
+    });
     app.post('/registered',function (req, res) {
 
             // SQL query to insert the new user into the registration table

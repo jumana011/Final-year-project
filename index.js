@@ -2,8 +2,9 @@ var express = require ('express');
 var ejs = require('ejs');
 var bodyParser = require ('body-parser');
 var mysql = require('mysql');
-var nlp = require('compromise');
 
+
+// console.log(tokenizer.tokenize("The quick brown fox jumps over the lazy dog"));
 
 const app = express()
 const port = 7000
