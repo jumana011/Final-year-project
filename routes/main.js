@@ -19,6 +19,9 @@ module.exports = function(app, AppData) {
     app.get('/badges',function(req,res){
         res.render('badges.ejs', AppData)
     });
+    app.get('/Messages',function(req,res){
+        res.render('Messages.ejs', AppData)
+    });
     app.post('/registered',function (req, res) {
 
             // SQL query to insert the new user into the registration table

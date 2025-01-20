@@ -1,8 +1,8 @@
 var express = require ('express');
 var ejs = require('ejs');
-var bodyParser= require ('body-parser');
+var bodyParser = require ('body-parser');
 var mysql = require('mysql');
-
+var nlp = require('compromise');
 
 
 const app = express()
