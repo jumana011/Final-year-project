@@ -27,7 +27,12 @@ module.exports = function(app, AppData) {
     app.post('/Motivational-Messages',function(req,res){
         var natural = require('natural');
         var tokenizer = new natural.WordTokenizer();
-        res.send(tokenizer.tokenize("The quick brown fox jumps over the lazy dog"))
+        responseType=req.body.response_type;
+        if (responseType == "tough") {
+            res.send(tokenizer.tokenize("Dont let them prove you wrong"))
+        } else if (responseType == "kind") {
+            res.send(tokenizer.tokenize("come on you can do it"))
+        }
     });
     app.post('/registered',function (req, res) {
 
@@ -45,7 +50,7 @@ module.exports = function(app, AppData) {
                 if (err) {
                     return console.error('Error saving to database:', err.message);
                 } else {
-                    // Constructing the result message for the response
+                    
                     result = 'Hello '+ req.body.username + ' '+' you are now registered!  We will send an email to you at ' + req.body.email
                     res.send(result + " " + '<a href="/login">login</a>')
                 }
