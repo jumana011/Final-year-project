@@ -30,9 +30,13 @@ module.exports = function(app, AppData) {
         responseType=req.body.response_type;
         if (responseType == "tough") {
             res.send(tokenizer.tokenize("Dont let them prove you wrong"))
+            
         } else if (responseType == "kind") {
             res.send(tokenizer.tokenize("come on you can do it"))
         }
+    });
+    app.post('/Exercise-videos',function(req,res){
+        res.send("exercise videos");
     });
     app.post('/registered',function (req, res) {
 
@@ -94,6 +98,7 @@ module.exports = function(app, AppData) {
 
             app.post('/meal-plans', (req, res) => {
                 const { diet, meal } = req.body;
+                
                 // Query the database for meals matching the diet preference
                 const query = 'SELECT * FROM meals WHERE Diet_type = ? AND meal_type = ?';
                 db.query(query, [diet,meal], (err, results) => {

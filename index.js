@@ -1,8 +1,8 @@
-var express = require ('express');
-var ejs = require('ejs');
-var bodyParser = require ('body-parser');
-var mysql = require('mysql');
-var request=require('request');
+const express = require ('express');
+const ejs = require('ejs');
+const bodyParser = require ('body-parser');
+const mysql = require('mysql');
+const request=require('request');
 // console.log(tokenizer.tokenize("The quick brown fox jumps over the lazy dog"));
 
 const app = express()
