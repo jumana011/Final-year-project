@@ -111,11 +111,15 @@ module.exports = function(app, AppData) {
             
 
     app.get('/badgesAchieved', (req, res) => {
-        const badges = [
+        const badges1 = [
             { name: "Good Job", image: "/images/good-job.png" },
-            { name: "Level Up", image: "/images/badges/level-up.png" },
-            { name: "I'm Proud of You", image: "/images/badges/proud-of-you.png" }
+            { name: "Level Up", image: "/images/level-up.png" },
+            { name: "I'm Proud of You", image: "/images/proud-of-you.png" }
         ];
+        for (let i = 0; i < 3; i++) {
+            
+            console.log(badges1);
+          }
         
     });
     

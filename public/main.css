@@ -6,6 +6,7 @@
 }
 body {
     background-color: rgb(210, 210, 243);
+    
   }
 a{
     color:  black;
@@ -30,7 +31,7 @@ p a {
  
   }
   
-  /* Change the link color on hover */
+
 p a:hover {
     background-color: #555;
     color: white;
@@ -51,14 +52,34 @@ p a:hover {
 .form input{
     font-family: "Roboto", sans-serif;
     outline: 10;
-    width: 50%;
+    width: 70%;
     border: 5;
+    height:30px;
+    margin-top: 30px;
+    font-size: medium;
 }
 .form input[type="submit"]{
     background-color: rgb(70, 185, 118);
     color: white; 
-    border: none;
+    border: None;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    
+    height:50%;
+    border-radius: 25px;
+}
+.Mealplan label{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+}
+.Mealplan button{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+
+}
+.Mealplan option{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    
 }
