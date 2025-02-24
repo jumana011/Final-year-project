@@ -116,10 +116,7 @@ module.exports = function(app, AppData) {
             { name: "Level Up", image: "/images/level-up.png" },
             { name: "I'm Proud of You", image: "/images/proud-of-you.png" }
         ];
-        for (let i = 0; i < 3; i++) {
-            
-            console.log(badges1);
-          }
+        
         
     });
     

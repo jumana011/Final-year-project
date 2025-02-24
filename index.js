@@ -3,11 +3,20 @@ const ejs = require('ejs');
 const bodyParser = require ('body-parser');
 const mysql = require('mysql');
 const request=require('request');
-// console.log(tokenizer.tokenize("The quick brown fox jumps over the lazy dog"));
+const chatRoutes = require('./routes/chat/chatRoutes');
+const nlpManager = require('./routes/nlp/nlp.config');
 
 const app = express()
 const port = 7000
 
+
+//redirects to chatroutes when there is a request for /chatbot route
+app.use('/chatbot', chatRoutes);
+
+//triggers the train and saves the output of training when app is initialised
+nlpManager.train().then(() => {
+  nlpManager.save();
+});
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // Set up css
