@@ -13,7 +13,7 @@
     "express": "^4.21.2",
     "mysql": "^2.18.1",
     "natural": "^8.0.1",
-    "node-nlp": "^5.0.0-alpha.5",
+    "node-nlp": "^3.10.2",
     "node.js": "^0.0.1-security",
     "request": "^2.88.2"
   }
